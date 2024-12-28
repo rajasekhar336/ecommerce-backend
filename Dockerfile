@@ -1,5 +1,6 @@
 # Use official PHP image with Apache
-FROM php:8.0-apache
+FROM php:7.4-apache
+
 
 # Install required system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -29,6 +30,9 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # Copy your PHP application into the container
 COPY . /var/www/html/
+
+# Set ownership of files to www-data user (fix Git issue)
+RUN chown -R www-data:www-data /var/www/html/
 
 # Set working directory
 WORKDIR /var/www/html
