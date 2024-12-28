@@ -5,11 +5,8 @@ pipeline {
         AWS_REGION = 'us-east-1'
         ECR_REPOSITORY = 'ecommerce/backend'
         IMAGE_TAG = "${env.BUILD_ID}"
-        KUBECONFIG = credentials('kubeconfig-credential-id')
         AWS_ACCOUNT_ID = '075884725528'
         NAMESPACE = 'myapp'
-        AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
     }
 
     stages {
