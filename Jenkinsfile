@@ -57,7 +57,7 @@ pipeline {
 
                     // Deploy the Helm chart
                     sh """
-                        helm upgrade --install frontend-${BUILD_ID} ./react-app --namespace ${NAMESPACE} --set image.repository=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY} --set image.tag=${IMAGE_TAG}
+                        helm upgrade --install frontend-${BUILD_ID} ./php-helm-release --namespace ${NAMESPACE} --set image.repository=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY} --set image.tag=${IMAGE_TAG}
                     """
                 }
             }
