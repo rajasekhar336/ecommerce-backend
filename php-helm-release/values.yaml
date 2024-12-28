@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: your-docker-repo/react-app
+  tag: latest
+
+service:
+  type: ClusterIP
+
+ingress:
+  host: your-app.example.com
+  certificateArn: arn:aws:acm:us-east-1:123456789012:certificate/your-certificate-arn
+  albGroupName: my-alb-group
+
+hpa:
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80

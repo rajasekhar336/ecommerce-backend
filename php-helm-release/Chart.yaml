@@ -1,0 +1,7 @@
+apiVersion: v2
+name: php-app
+description: A Helm chart for deploying a React application
+type: application
+version: 0.1.0
+appVersion: "1.0"  # The version of the app being deployed
+dependencies: []  # You can list any chart dependencies here
